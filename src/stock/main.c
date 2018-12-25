@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "login.h"
 #include "social.h"
+#include "deposit.h"
+#include "stock.h"
 
 int main() {
 	
