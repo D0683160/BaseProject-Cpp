@@ -5,7 +5,7 @@
 
 int login() {
 	
-	int option, i, j;						//			   	 0	 	      1
+	int option, i, j, totalAmount;			//			   	 0	 	      1
 	int login = 0, reg = 0, size = 0;		//  login	  未登入	    登入 
 	char id[MAX], password[MAX];			//	reg		  未註冊       已註冊 
 	char tempi[MAX], tempp[MAX];			//	size	超過16字元  未超過16字元 
@@ -45,7 +45,7 @@ int login() {
 				
 				// 驗證帳號 
 				FILE* inptr = fopen("account.txt", "r");
-				while(fscanf(inptr, "%s %s", tempi, tempp) != EOF) {
+				while(fscanf(inptr, "%s %s %d", tempi, tempp, &totalAmount) != EOF) {
 					if(strcmp(id, tempi) == 0 && strcmp(password, tempp) == 0) {
 						printf("logining ...\n\n");
 						login = 1;
@@ -85,7 +85,7 @@ int login() {
 				
 				// 驗證帳號
 				FILE* inptr2 = fopen("account.txt", "r");
-				while(fscanf(inptr2, "%s %s", tempi, tempp) != EOF) {
+				while(fscanf(inptr2, "%s %s %d", tempi, tempp, &totalAmount) != EOF) {
 					if(strcmp(id, tempi) == 0) {
 						reg = 1;
 						break;
@@ -100,7 +100,7 @@ int login() {
 				}
 				else {
 					FILE* outptr = fopen("account.txt", "a");
-					fprintf(outptr, "%s %s\n", id, password);
+					fprintf(outptr, "%s %s 0\n", id, password);
 					fclose(outptr);
 					
 					printf("registering ...\n\n");
