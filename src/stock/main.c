@@ -71,7 +71,8 @@ int main() {
 				social();
 				break;
 			case 5:
-				
+				link();
+				break;
 			default:
 				break;
 		}

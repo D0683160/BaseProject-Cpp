@@ -111,6 +111,7 @@ int login() {
 			default:
 				
 				printf("\nError\n\n");
+				return login;
 		}
 	}
 	
